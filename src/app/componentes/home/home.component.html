@@ -1,0 +1,54 @@
+<div class="home-container">
+  <h2>Plan Diario</h2>
+
+  <div class="task-form">
+    <h3>Agregar Tarea</h3>
+    <form #taskForm="ngForm" (ngSubmit)="agregarTarea(taskForm)">
+      <div>
+        <label for="title">Título</label>
+        <input type="text" id="title" name="title" [(ngModel)]="newTask.title" required>
+        <div *ngIf="taskForm.submitted && taskForm.controls['title']?.invalid">
+          <small class="error">El título es obligatorio.</small>
+        </div>
+      </div>
+      <div>
+        <label for="description">Descripción</label>
+        <input type="text" id="description" name="description" [(ngModel)]="newTask.description" required>
+        <div *ngIf="taskForm.submitted && taskForm.controls['description']?.invalid">
+          <small class="error">La descripción es obligatoria.</small>
+        </div>
+      </div>
+      <button type="submit">Agregar Tarea</button>
+    </form>
+  </div>
+
+
+  <div class="task-list">
+    <h3>Lista de Tareas</h3>
+    <ul>
+      <li *ngFor="let task of tasks" class="task-list-item">
+        <div class="view-mode">
+          <form *ngIf="editingTaskId === task.id" #editForm="ngForm" (ngSubmit)="guardarTarea(editForm)" novalidate>
+            <input [(ngModel)]="editingTask.title" name="editTitle" placeholder="Título" required #editTitle="ngModel">
+            <div *ngIf="editTitle.invalid && (editTitle.dirty || editTitle.touched)" class="error">
+              El título es obligatorio.
+            </div>
+            <input [(ngModel)]="editingTask.description" name="editDescription" placeholder="Descripción" required #editDescription="ngModel">
+            <div *ngIf="editDescription.invalid && (editDescription.dirty || editDescription.touched)" class="error">
+              La descripción es obligatoria.
+            </div>
+            <div class="button-container">
+              <button type="submit" [disabled]="editForm.invalid" class="edit-button">Guardar</button>
+              <button type="button" (click)="cancelarEdicion()" class="edit-button">Cancelar</button>
+            </div>
+          </form>
+          <span *ngIf="editingTaskId !== task.id">{{ task.title }}: {{ task.description }}</span>
+          <div class="button-container" *ngIf="editingTaskId !== task.id">
+            <button class="edit" (click)="EditarTarea(task)">Editar</button>
+            <button class="delete" (click)="eliminarTarea(task.id)">Eliminar</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

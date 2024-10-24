@@ -1,0 +1,145 @@
+/* Estilo para centrar el texto y cambiar el color a blanco */
+h2 {
+  text-align: center;
+  color: white;
+}
+
+/* Estilo para cambiar el fondo a negro */
+.home-container {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo compartido para task-form y task-list */
+.task-form,
+.task-list {
+  border: 1px solid white;
+  padding: 20px;
+  margin: 20px 0;
+  width: 50%; /* Reducir el tamaño a la mitad */
+  box-sizing: border-box;
+  background-color: #333; /* Fondo oscuro */
+}
+
+/* Estilo para los inputs */
+input {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 10px;
+  width: 100%; /* Mantener el ancho completo dentro del formulario */
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilo específico para los inputs dentro de task-list */
+.task-list input {
+  width: 45%; /* Reducir el tamaño a la mitad */
+  margin-right: 10px; /* Espacio entre los inputs */
+}
+
+/* Estilo para centrar el botón */
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo específico para los botones de editar, eliminar y hecho */
+button.edit {
+  background-color: yellow;
+  color: black;
+}
+
+button.edit:hover {
+  background-color: #e6e600;
+}
+
+button.delete {
+  background-color: red;
+  color: white;
+}
+
+button.delete:hover {
+  background-color: #cc0000;
+}
+
+button.done {
+  background-color: green;
+  color: white;
+}
+
+button.done:hover {
+  background-color: #009900;
+}
+
+/* Estilo para alinear los botones en la misma fila */
+.task-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-list-item div {
+  display: flex;
+  align-items: center;
+}
+
+.task-list-item span {
+  flex-grow: 1;
+  display: inline-block;
+  width: 45%; /* Mantener el mismo tamaño que los inputs */
+  margin-right: 10px; /* Espacio entre el título y la descripción */
+}
+
+.task-list-item .view-mode {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.task-list-item .edit-mode {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+
+.edit-input {
+  width: 95%; /* Reducir el tamaño en un 5% */
+}
+
+.edit-button {
+  font-size: 80%; /* Reducir el tamaño en un 20% */
+  padding: 8px 16px; /* Ajustar el padding para mantener la proporción */
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+}
